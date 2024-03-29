@@ -1,5 +1,6 @@
 <template>
   <div class="box">
+    <h1>删除main.js文件的函数</h1>
     <h2>我是app</h2>
   </div>
 </template>
