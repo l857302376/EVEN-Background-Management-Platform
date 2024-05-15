@@ -1,13 +1,13 @@
 <template>
-    <div class="tabbar">
-        <div class="tabbar_left">
-            <!-- 顶部左侧的静态 -->
-            <Breadcrumb></Breadcrumb>
-        </div>
-        <div class="tabbar_right">
-            <Setting></Setting>
-        </div>
+  <div class="tabbar">
+    <div class="tabbar_left">
+      <!-- 顶部左侧的静态 -->
+      <Breadcrumb></Breadcrumb>
     </div>
+    <div class="tabbar_right">
+      <Setting></Setting>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -17,27 +17,27 @@ import Setting from './setting/index.vue'
 
 <script lang="ts">
 export default {
-  name:"Tabbar"
-};
+  name: 'Tabbar',
+}
 </script>
 
 <style scoped lang="scss">
 .tabbar {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(to right, white, rgb(241, 225, 225), white);
+
+  .tabbar_left {
     display: flex;
-    justify-content: space-between;
-    background-image: linear-gradient(to right, white, rgb(241, 225, 225), white);
+    align-items: center;
+    margin-left: 20px;
+  }
 
-    .tabbar_left {
-        display: flex;
-        align-items: center;
-        margin-left: 20px;
-    }
-
-    .tabbar_right {
-        display: flex;
-        align-items: center;
-    }
+  .tabbar_right {
+    display: flex;
+    align-items: center;
+  }
 }
 </style>

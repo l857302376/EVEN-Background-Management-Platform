@@ -5,46 +5,55 @@
       <Logo></Logo>
       <!-- 展示菜单,滚动组件 -->
       <el-scrollbar class="scrollbar">
-        <el-menu background-color="#5b6c7b" text-color="white" :default-active="$route.path"
-          :collapse="LayoutSettingStore.fold">
+        <el-menu
+          background-color="#5b6c7b"
+          text-color="white"
+          :default-active="$route.path"
+          :collapse="LayoutSettingStore.fold"
+        >
           <Menu :menuList="userStore.memuRoutes"></Menu>
         </el-menu>
       </el-scrollbar>
     </div>
     <!-- 顶栏导航 -->
-    <div class="layout_tabbar" :class="{ fold: LayoutSettingStore.fold ? true : false }">
+    <div
+      class="layout_tabbar"
+      :class="{ fold: LayoutSettingStore.fold ? true : false }"
+    >
       <Tabbar></Tabbar>
     </div>
     <!-- 展示区域 -->
-    <div class="layout_main" :class="{ fold: LayoutSettingStore.fold ? true : false }">
+    <div
+      class="layout_main"
+      :class="{ fold: LayoutSettingStore.fold ? true : false }"
+    >
       <Main></Main>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
-import Logo from './logo/index.vue';
+import { useRoute } from 'vue-router'
+import Logo from './logo/index.vue'
 import Menu from './menu/index.vue'
 import Tabbar from './tabbar/index.vue'
 
 //获取用户相关的小仓库
-import useUserStore from '@/store/modules/user';
-import useLayoutSettingStore from '@/store/modules/setting';
+import useUserStore from '@/store/modules/user'
+import useLayoutSettingStore from '@/store/modules/setting'
 
 import Main from './main/index.vue'
 
-let LayoutSettingStore = useLayoutSettingStore();
-let userStore = useUserStore();
+let LayoutSettingStore = useLayoutSettingStore()
+let userStore = useUserStore()
 
-let $route = useRoute();
-
+let $route = useRoute()
 </script>
 
 <script lang="ts">
 export default {
-  name: "Layout"
-};
+  name: 'Layout',
+}
 </script>
 
 <style scoped lang="scss">
