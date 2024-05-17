@@ -1,87 +1,46 @@
 <template>
   <el-form label-width="100px">
     <el-form-item label="SKU名称">
-      <el-input
-        placeholder="请输入SKU名称"
-        v-model="skuParams.skuName"
-      ></el-input>
+      <el-input placeholder="请输入SKU名称" v-model="skuParams.skuName"></el-input>
     </el-form-item>
     <el-form-item label="价格(元)">
-      <el-input
-        placeholder="请输入价格(元)"
-        type="number"
-        v-model="skuParams.price"
-      ></el-input>
+      <el-input placeholder="请输入价格(元)" type="number" v-model="skuParams.price"></el-input>
     </el-form-item>
     <el-form-item label="重量(g)">
-      <el-input
-        placeholder="请输入重量(g)"
-        v-model="skuParams.weight"
-      ></el-input>
+      <el-input placeholder="请输入重量(g)" v-model="skuParams.weight"></el-input>
     </el-form-item>
     <el-form-item label="SKU描述">
-      <el-input
-        placeholder="请输入SKU描述"
-        type="textarea"
-        v-model="skuParams.skuDesc"
-      ></el-input>
+      <el-input placeholder="请输入SKU描述" type="textarea" v-model="skuParams.skuDesc"></el-input>
     </el-form-item>
     <el-form-item label="平台属性">
       <el-form inline label-width="80px">
-        <el-form-item
-          v-for="item in attrArr"
-          :key="item.id"
-          :label="item.attrName"
-        >
+        <el-form-item v-for="item in attrArr" :key="item.id" :label="item.attrName">
           <el-select v-model="item.attrIdAndValueId">
-            <el-option
-              v-for="attrValue in item.attrValueList"
-              :key="attrValue.id"
-              :label="attrValue.valueName"
-              :value="`${item.id}:${attrValue.id}`"
-            ></el-option>
+            <el-option v-for="attrValue in item.attrValueList" :key="attrValue.id" :label="attrValue.valueName"
+              :value="`${item.id}:${attrValue.id}`"></el-option>
           </el-select>
         </el-form-item>
       </el-form>
     </el-form-item>
     <el-form-item label="销售属性">
       <el-form inline label-width="80px">
-        <el-form-item
-          v-for="item in saleArr"
-          :key="item.id"
-          :label="item.saleAttrName"
-        >
+        <el-form-item v-for="item in saleArr" :key="item.id" :label="item.saleAttrName">
           <el-select v-model="item.saleIdAndValueId">
-            <el-option
-              v-for="saleAttrValue in item.spuSaleAttrValueList"
-              :key="saleAttrValue.id"
-              :label="saleAttrValue.saleAttrValueName"
-              :value="`${item.id}:${saleAttrValue.id}`"
-            ></el-option>
+            <el-option v-for="saleAttrValue in item.spuSaleAttrValueList" :key="saleAttrValue.id"
+              :label="saleAttrValue.saleAttrValueName" :value="`${item.id}:${saleAttrValue.id}`"></el-option>
           </el-select>
         </el-form-item>
       </el-form>
     </el-form-item>
     <el-form-item label="图片名称">
       <el-table border :data="imgArr" ref="table">
-        <el-table-column
-          type="selection"
-          width="80px"
-          align="center"
-        ></el-table-column>
+        <el-table-column type="selection" width="80px" align="center"></el-table-column>
         <el-table-column label="图片" align="center">
           <template #="{ row }">
-            <el-image
-              :src="row.imgUrl"
-              style="width: 100px; height: 100px"
-            ></el-image>
+            <el-image :src="row.imgUrl" style="width: 100px; height: 100px"></el-image>
           </template>
         </el-table-column>
-        <el-table-column
-          label="名称"
-          align="center"
-          prop="imgName"
-        ></el-table-column>
+        <el-table-column label="名称" align="center" prop="imgName"></el-table-column>
         <el-table-column label="操作" align="center">
           <template #="{ row }">
             <el-button @click="handler(row)" type="primary" size="small">
